@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Fullscreen</title>
+</head>
+<body>
+    <iframe id="youtubePlayer" src="https://www.youtube.com/embed/yMKTz5lazr8?autoplay=1&loop=1&playlist=yMKTz5lazr8" frameborder="0" allow="autoplay; fullscreen;" style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
+    <script>
+        var player = document.getElementById('youtubePlayer');
+        player.onload = function() {
+            player.contentWindow.document.body.onclick = function() {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                    document.documentElement.webkitRequestFullscreen();
+                } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
+                    document.documentElement.msRequestFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
